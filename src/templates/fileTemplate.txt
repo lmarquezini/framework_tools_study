@@ -1,0 +1,13 @@
+{  
+   "test": "{{ data1 }}",
+   "example":"{{ data2 }}",
+   "number":{{ data3 }},
+   "array":[  
+      {  
+         "{{ data4 }}":"valor1"
+      },
+      {  
+         "array2":"{{ data5 }}"
+      }
+   ]
+}

@@ -1,0 +1,46 @@
+{
+  "name": "projeto_test_expressJS",
+  "version": "1.0.0",
+  "description": "simple example to practice many javascript possibilities",
+  "main": "app.js",
+  "scripts": {
+    "cucumber-functional-tests": "node ./node_modules/cucumber/bin/cucumber.js",
+    "jasmine-functional-tests": "jasmine-node test/jasmine/",
+    "frisby-functional-tests": "jasmine-node test/spec/api",
+    "postman-tests": "node ./node_modules/newman/bin/newman.js run ./test/newman_postman_test/Newman_test.postman_collection.json",
+    "swagger-test-generator": "node ./test/swagger_testGenerator/swagger-testGenerator.js",
+    "jmeter-performance-tests": "test/apache-jmeter-3.0/bin/jmeter.bat -n -t test/apache-jmeter-3.0/scripts/jmeter_test.jmx -l reports/jmeterResults/jmeter_result.jtl",
+    "qqcoisa": "echo 'Qualquer coisa'"
+  },
+  "keywords": [],
+  "author": "Leonardo Marquezini",
+  "license": "to_do",
+  "dependencies": {
+    "cucumber": "^1.2.2",
+    "js-yaml": "^3.6.1",
+    "newman": "^3.1.0",
+    "swagger-test-templates": "^1.2.0"
+  },
+  "devDependencies": {
+    "JSONPath": "^0.11.2",
+    "body-parser": "^1.15.2",
+    "cucumber": "^1.2.2",
+    "cucumber-html-reporter": "^0.2.8",
+    "express": "^4.14.0",
+    "frisby": "^0.8.5",
+    "fs": "0.0.1-security",
+    "istanbul": "^0.4.5",
+    "jasmine-node": "^1.14.5",
+    "jasmine-reporters": "^2.2.0",
+    "js-yaml": "^3.6.1",
+    "jsonschema": "^1.1.0",
+    "log4js": "^0.6.38",
+    "moment": "^2.14.1",
+    "newman": "^3.1.0",
+    "nunjucks": "^2.4.2",
+    "request": "^2.74.0",
+    "swagger-test-templates": "^1.2.0",
+    "swagger-ui": "^2.2.3",
+    "yamljs": "^0.2.8"
+  }
+}

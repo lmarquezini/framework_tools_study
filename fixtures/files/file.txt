@@ -1,0 +1,13 @@
+{  
+   "test":"some template",
+   "example":"another text",
+   "number":1234,
+   "array":[  
+      {  
+         "array1":"valor1"
+      },
+      {  
+         "array2":"valor2"
+      }
+   ]
+}

@@ -1,0 +1,15 @@
+# Coverage content
+coverage
+.instrument
+
+# Logs folder
+logs
+
+# Dependency directories
+node_modules
+
+# Jmeter application
+test/apache-jmeter-3.0
+
+# Reports folder
+reports

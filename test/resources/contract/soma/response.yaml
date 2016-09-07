@@ -1,0 +1,14 @@
+---
+id: "/soma"
+type: object
+properties:
+  resultado:
+    type: number
+    minimum: 1
+  valores:
+    type: array
+    items:
+      type: number
+required:
+- resultado
+- valores

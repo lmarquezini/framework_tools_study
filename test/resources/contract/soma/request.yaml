@@ -1,0 +1,13 @@
+---
+id: "/soma"
+type: object
+properties:
+  a:
+    type: number
+    minimum: 1
+  b:
+    type: number
+    minimum: 1
+required:
+- a
+- b

@@ -1,0 +1,21 @@
+{"appenders": [
+    {
+        "type": "console",
+        "layout": {
+            "type": "pattern",
+            "pattern": "-yyyy-MM-dd"
+        },
+        "category": "app"
+    },{
+        "category": "test-file-appender",
+        "type": "file",
+        "filename": ".\\logs\\service_api.log",
+        "maxLogSize": 10240,
+        "backups": 3,
+        "layout": {
+            "type": "pattern",
+            "pattern": "%d{-yyyy-MM-dd hh:mm - }[%-4p] %m"
+        }
+    }
+],
+"replaceConsole": false }
