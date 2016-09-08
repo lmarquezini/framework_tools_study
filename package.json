@@ -24,6 +24,8 @@
   "devDependencies": {
     "JSONPath": "^0.11.2",
     "body-parser": "^1.15.2",
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
     "cucumber": "^1.2.2",
     "cucumber-html-reporter": "^0.2.8",
     "express": "^4.14.0",
@@ -35,7 +37,9 @@
     "js-yaml": "^3.6.1",
     "jsonschema": "^1.1.0",
     "log4js": "^0.6.38",
+    "mocha": "^3.0.2",
     "moment": "^2.14.1",
+    "mongoose": "^4.6.0",
     "newman": "^3.1.0",
     "nunjucks": "^2.4.2",
     "request": "^2.74.0",

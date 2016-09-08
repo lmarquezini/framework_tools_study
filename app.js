@@ -347,3 +347,5 @@ function findWithAttr(array, attr, value) {
   }
   return -1;
 }
+
+module.exports = app
