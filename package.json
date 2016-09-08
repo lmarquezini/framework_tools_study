@@ -9,7 +9,7 @@
     "frisby-functional-tests": "jasmine-node test/spec/api",
     "postman-tests": "node ./node_modules/newman/bin/newman.js run ./test/newman_postman_test/Newman_test.postman_collection.json",
     "swagger-test-generator": "node ./test/swagger_testGenerator/swagger-testGenerator.js",
-    "jmeter-performance-tests": "test/apache-jmeter-3.0/bin/jmeter.bat -n -t test/apache-jmeter-3.0/scripts/jmeter_test.jmx -l reports/jmeterResults/jmeter_result.jtl",
+    "jmeter-performance-tests": "jmeter_exec.sh",
     "qqcoisa": "echo 'Qualquer coisa'"
   },
   "keywords": [],

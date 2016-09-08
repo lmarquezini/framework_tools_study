@@ -2,8 +2,9 @@
 coverage
 .instrument
 
-# Logs folder
+# Logs folder and other log files
 logs
+*.log
 
 # Dependency directories
 node_modules
