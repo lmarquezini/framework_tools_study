@@ -1,0 +1,4 @@
+{
+   "username" : "{{ data1 }}",
+   "registry" : {{ data2 }}
+}

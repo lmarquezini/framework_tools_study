@@ -11,6 +11,7 @@ var fs = require('fs')
 
 // USING YAML PACKAGE
 var YAML = require('yamljs');
+var nunjucks = require('nunjucks');
 
 // USING JSON VALIDATOR
 var validate = require('jsonschema').validate;
@@ -56,6 +57,23 @@ var GithubStepsWrapper = function () {
     var requestBody = '{"a" : ' + valueA + ', "b" : ' + valueB + '}'
     console.log("This is the response body: " + requestBody)
     this.post(address, requestBody, callback)
+  })
+
+  this.When(/^I POST to the URL "([^"]*)" with username as "([^"]*)" and registry as "([^"]*)"$/, function(address, username, registry, callback) {
+    
+    // GET TEMPLATE FILE
+    var txtFileTemplate = "./src/templates/userPostRequestTemplate.txt"
+    var contentsTemplate = fs.readFileSync(txtFileTemplate, 'utf8');
+
+    // REPLACE THE DATA IN THE TEMPLATE
+    nunjucks.configure({ autoescape: true });
+    var contentsTemplateChanged = nunjucks.renderString(contentsTemplate, { 
+      data1: username,
+      data2: registry
+    });
+
+    // SUBMIT REQUEST
+    this.post(address, contentsTemplateChanged, callback)
   })
 
 
