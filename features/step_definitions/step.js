@@ -31,31 +31,37 @@ var GithubStepsWrapper = function () {
 
   // [START] ################### CREATED BY MARQUEZINI ###################
   this.When(/^I GET url the "([^"]*)"$/, function(address, callback) {
-    console.log("This was the got content: " + address)
-    console.log("This final uri: " + this.uri(address))
+    //console.log("This was the got content: " + address)
+    //console.log("This final uri: " + this.uri(address))
     this.get(address, callback)
   })
 
+  this.When(/^I DELETE url the "([^"]*)"$/, function(address, callback) {
+    //console.log("This was the got content: " + address)
+    //console.log("This final uri: " + this.uri(address))
+    this.delete(address, callback)
+  })
+
   this.When(/^I execute$/, function(callback) {
-    console.log("This final uri: " + this.rootPath())
+    //console.log("This final uri: " + this.rootPath())
     this.get(this.rootPath(), callback)
   })
 
   this.When(/^I POST url the "([^"]*)"$/, function(address, callback) {
-    console.log("This was the got content: " + address)
-    console.log("This final uri: " + this.uri(address))
+    //console.log("This was the got content: " + address)
+    //console.log("This final uri: " + this.uri(address))
     var requestBody = '{"a" : 65, "b" : 5}'
-    console.log("This is the response body: " + requestBody)
+    //console.log("This is the response body: " + requestBody)
     this.post(address, requestBody, callback)
   })
 
   this.When(/^I POST url the "([^"]*)" with values "([^"]*)" and "([^"]*)"$/, function(address, valueA, valueB, callback) {
-    console.log("This was the got content: " + address)
-    console.log("This final uri: " + this.uri(address))
-    console.log("This the valueA: " + valueA)
-    console.log("This the valueB: " + valueB)
+    //console.log("This was the got content: " + address)
+    //console.log("This final uri: " + this.uri(address))
+    //console.log("This the valueA: " + valueA)
+    //console.log("This the valueB: " + valueB)
     var requestBody = '{"a" : ' + valueA + ', "b" : ' + valueB + '}'
-    console.log("This is the response body: " + requestBody)
+    //console.log("This is the response body: " + requestBody)
     this.post(address, requestBody, callback)
   })
 
@@ -105,8 +111,8 @@ var GithubStepsWrapper = function () {
   this.Then(/^the http status should be (\d+)$/, function(status, callback) {
     if (!assertResponse(this.lastResponse, callback)) { return }
     // SHOW DATA IN THE CONSOLE
-    console.log(this.lastResponse.statusCode)
-    console.log(this.lastResponse.body)
+    //console.log(this.lastResponse.statusCode)
+    //console.log(this.lastResponse.body)
     
     if (this.lastResponse.statusCode != status) {
     /* jshint +W116 */
@@ -124,8 +130,8 @@ var GithubStepsWrapper = function () {
   // Check if a certain property of the response is equal to something
   this.Then(/^(?:the )?([\w_.$\[\]]+) should equal "([^"]+)"$/,
       function(key, expectedValue, callback) {
-    console.log("KEY VALUE: " + key)
-    console.log("EXPECTED VALUE: " + expectedValue)
+    //console.log("KEY VALUE: " + key)
+    //console.log("EXPECTED VALUE: " + expectedValue)
     if (!assertPropertyIs(this.lastResponse, key, expectedValue, callback)) {
       return
     }
@@ -135,11 +141,28 @@ var GithubStepsWrapper = function () {
   // MARQUEZINI - CREATE TO CHECK THE KEY VALUE
   this.Then(/^(?:the )?([\w_.$\[\]]+) should equal "([^"]+)" in the key "([^"]*)"$/,
       function(key, expectedValue, bodyKey, callback) {
-    console.log("KEY VALUE: " + key)
-    console.log("EXPECTED VALUE: " + expectedValue)
-    console.log("BODYKEY VALUE: " + bodyKey)
+    //console.log("KEY VALUE: " + key)
+    //console.log("EXPECTED VALUE: " + expectedValue)
+    //console.log("BODYKEY VALUE: " + bodyKey)
     if (!assertPropertyKeyValue(this.lastResponse, key, expectedValue, bodyKey, callback)) {
       return
+    }
+    callback()
+  })
+
+  this.Then(/^the ID should be a NUMBER$/,
+      function(callback) {
+    var response = JSON.parse(this.lastResponse.body) 
+    console.log("ID VALUE: " + response.id)
+    callback()
+  })
+
+  this.Then(/^the user list should be empty$/,
+      function(callback) {
+    var response = JSON.parse(this.lastResponse.body) 
+    console.log("BODY VALUE: " , response)
+    if ( JSON.stringify(response) !==  JSON.stringify([])) {
+      callback(new Error('Body not empty.'))
     }
     callback()
   })
@@ -183,7 +206,6 @@ var GithubStepsWrapper = function () {
       callback.fail(new Error('precisa de message.'))
       return false
     }
-
     callback()
   })
 
