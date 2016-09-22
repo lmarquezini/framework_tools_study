@@ -86,7 +86,22 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
-
+  /read_file:  
+    get:
+      description: URL that will read a local file and send it as the response body.
+      # used as the method name of the controller
+      operationId: read_file
+      responses:
+        "200":
+          description: Local file was read and content is available in the response body.
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/ReadFileResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
   /users:
     x-swagger-router-controller: users route controller
     get:
@@ -251,6 +266,41 @@ definitions:
         type: array
         items:
           type: number
+  ReadFileResponse:
+    type: object
+    properties:
+      test:
+        type: string
+      example:
+        type: string
+      number:
+        type: number
+      items:
+        type: array
+        items:
+          type: object
+          properties:
+            arrayItem:
+              type: string
+            id:
+              type: number
+      contractA1:
+        type: string
+      contractB1:
+        type: string
+      contractC1:
+        type: string
+      contractA2:
+        type: number
+      contractC2:
+        type: number
+  readFileResponseArrayItems:
+    type: object
+    properties:
+      arrayItem:
+        type: string
+      id:
+        type: number
   usersResponse:
     type: array
     items:

@@ -1,0 +1,22 @@
+---
+id: "/read_file"
+type: object
+properties:
+  test:
+    type: string
+  items:
+    type: array
+    items:
+      type: object
+      properties:
+        arrayItem:
+          type: string
+        id:
+          type: number
+  contractC1:
+    type: string
+  contractC2:
+    type: number
+required:
+- contractC1
+- contractC2

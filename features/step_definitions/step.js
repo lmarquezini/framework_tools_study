@@ -168,7 +168,8 @@ var GithubStepsWrapper = function () {
   })
 
   // MARQUEZINI - CREATE TO CHECK THE CONTRACT
-  this.Then(/^ensure ([\w_.$\[\]]+) ([^"]*) matched contract definition$/,
+  //this.Then(/^ensure ([\w_.$\[\]]+) ([^"]*) matched contract definition$/,
+  this.Then(/^ensure ([^"]*) ([^"]*) matched contract definition$/,
       function(key, file, callback) {
 
     // READ THE INDICATED YAML FILE
@@ -176,7 +177,7 @@ var GithubStepsWrapper = function () {
     var yamlFile = file + ".yaml"
     var pathAbsolute = contractPath + yamlFile
     var contents = fs.readFileSync(pathAbsolute, 'utf8');
-
+    
     // CONVERT THE YAML TO JSON
     var nativeObject = YAML.parse(contents)
     var json = JSON.stringify(nativeObject)
@@ -238,6 +239,8 @@ var GithubStepsWrapper = function () {
         contractSchema = this.lastResponse.body
       }
     var responseObject = JSON.parse(contractSchema)
+    console.log("\nJSON OBJECT: " , jsonObjectService)
+    console.log("\nRESPONSE OBJECT: " , responseObject)
 
     var contractResult = validate(responseObject, jsonObjectService).valid
 

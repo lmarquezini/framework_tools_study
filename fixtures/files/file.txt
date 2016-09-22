@@ -2,12 +2,19 @@
    "test":"some template",
    "example":"another text",
    "number":1234,
-   "array":[  
+   "items":[  
       {  
-         "array1":"valor1"
+         "arrayItem":"valor1",
+         "id":123456
       },
       {  
-         "array2":"valor2"
+         "arrayItem":"valor2",
+         "id":987654
       }
-   ]
+   ],
+   "contractA1":"data important to client A",
+   "contractB1":"data important to client B",
+   "contractC1":"data important to client C",
+   "contractA2":987654321,
+   "contractC2":123456789
 }
