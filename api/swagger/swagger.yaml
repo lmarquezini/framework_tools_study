@@ -2,7 +2,11 @@ swagger: "2.0"
 info:
   version: "0.0.1"
   title: Framework Tools Study
-  description: This is a sample test to practice many frameworks and test tools. There are many endpoints with different actions. 
+  description: | 
+    This is a sample test to practice many frameworks and test tools. There are many endpoints with different actions.
+    [GUTHUB](https://github.com/lmarquezini/framework_tools_study) `#swagger` this is a test description.
+  contact:
+    name: lmarquezini@gmail.com
 # during dev, should point to your local machine
 host: localhost:3000
 # basePath prefixes all resource paths 
@@ -18,6 +22,10 @@ consumes:
 # format of the responses to the client (Accepts)
 produces:
   - application/json
+tags:
+  - name: default
+  - name: users
+  - name: contract
 paths:
   /:  
     # binds a127 app logic to a route
@@ -62,7 +70,7 @@ paths:
   /soma:
     x-swagger-router-controller: soma
     post:
-      summary: Executes a Fraud Check
+      summary: Executes a math operation
       description: >
         text
       parameters:
@@ -88,6 +96,10 @@ paths:
             $ref: "#/definitions/ErrorResponse"
   /read_file:  
     get:
+      tags:
+        - contract
+        - default
+      summary: Return the content of a local file
       description: URL that will read a local file and send it as the response body.
       # used as the method name of the controller
       operationId: read_file
@@ -105,6 +117,9 @@ paths:
   /users:
     x-swagger-router-controller: users route controller
     get:
+      tags:
+        - users
+      summary: Return all the users
       description: Return the list of available users in the system.
       operationId: Return Users
       responses:
@@ -119,6 +134,9 @@ paths:
   /user/{userId}:
     x-swagger-router-controller: users route controller
     get:
+      tags:
+        - users
+      summary: Return data from a user
       description: Return the content of a specific user by userId.
       parameters:
         - name: userId
@@ -137,6 +155,9 @@ paths:
           schema:
             $ref: "#/definitions/ErrorResponse"
     put:
+      tags:
+        - users
+      summary: Update data of a user
       description: Update a specific user by userId.
       parameters:
         - name: userId
@@ -146,7 +167,7 @@ paths:
           type: number
         - in: body
           name: body
-          description: Data to update an user.
+          description: Data to update a user.
           required: true
           schema:
             $ref: "#/definitions/userRequest"
@@ -161,6 +182,9 @@ paths:
           schema:
             $ref: "#/definitions/ErrorResponse"
     delete:
+      tags:
+        - users
+      summary: Delete a user
       description: Delete a specific user by userId.
       parameters:
         - name: userId
@@ -181,18 +205,22 @@ paths:
   /user/:
     x-swagger-router-controller: users route controller
     post:
-      description: Create an user.
-      operationId: Create an User account
+      tags:
+        - users
+        - contract
+      summary: Create a user
+      description: Create a user.
+      operationId: Create a User account
       parameters:
         - in: body
           name: body
-          description: Data to create an user.
+          description: Data to create a user.
           required: true
           schema:
             $ref: "#/definitions/userRequest"
       responses:
         "200":
-          description: Return the data of a created user and an userId
+          description: Return the data of a created user and a userId
           schema:
             $ref: "#/definitions/usersResponseArrayItems"
         default:
@@ -202,6 +230,9 @@ paths:
   /users/deleteAll:
     x-swagger-router-controller: users route controller
     delete:
+      tags:
+        - users
+      summary: Delete all users
       description: This URL will delete all the users.
       operationId: Delete All Users
       responses:
