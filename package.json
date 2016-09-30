@@ -7,6 +7,8 @@
     "cucumber-functional-tests": "node ./node_modules/cucumber/bin/cucumber.js",
     "user_test": "node ./node_modules/cucumber/bin/cucumber.js features/user.feature",
     "contract_test": "node ./node_modules/cucumber/bin/cucumber.js features/contract_read.feature",
+    "userFlow": "node ./node_modules/cucumber/bin/cucumber.js features/userFlow.feature",
+    "cucumber_table": "node ./node_modules/cucumber/bin/cucumber.js features/example_table.feature",
     "jasmine-functional-tests": "jasmine-node test/jasmine/",
     "frisby-functional-tests": "jasmine-node test/spec/api",
     "postman-tests": "node ./node_modules/newman/bin/newman.js run ./test/newman_postman_test/Newman_test.postman_collection.json",

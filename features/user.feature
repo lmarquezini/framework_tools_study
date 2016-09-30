@@ -18,7 +18,6 @@ Feature: User CRUD
     Given I an using the REST API service
     When I GET url the "/users"
     Then the http status should be 200
-    And the user list should be empty
 
   Scenario: Delete all the users from the system
     Given I an using the REST API service

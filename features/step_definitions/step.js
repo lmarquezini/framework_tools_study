@@ -28,6 +28,13 @@ var GithubStepsWrapper = function () {
     return callback()
   });
 
+  this.Given(/^I am using the REST API service and with the user list cleaned$/, function (callback) {
+      console.log("BEFORE CALLSTEP")
+      callStep("I an using the REST API service")
+      console.log("AFTER CALLSTEP")  
+    return callback()
+  });
+
 
   // [START] ################### CREATED BY MARQUEZINI ###################
   this.When(/^I GET url the "([^"]*)"$/, function(address, callback) {
